@@ -1,0 +1,273 @@
+/* line 5, ../../compass/sass/_artistAccount.scss */
+.my-account-page {
+  max-width: 919px;
+  margin: auto;
+}
+
+/* line 9, ../../compass/sass/_artistAccount.scss */
+.profileImage {
+  width: 100%;
+}
+
+/* line 13, ../../compass/sass/_artistAccount.scss */
+.dark-button {
+  background-color: orange;
+  color: #232F3E;
+}
+
+/* line 18, ../../compass/sass/_artistAccount.scss */
+.uploading {
+  animation: uploadColor 1s linear infinite;
+}
+
+@keyframes uploadColor {
+  0% {
+    color: black;
+  }
+  50% {
+    color: blue;
+  }
+  100% {
+    color: black;
+  }
+}
+/* line 33, ../../compass/sass/_artistAccount.scss */
+.side-bar-content {
+  padding: 70px 20px;
+  background-color: rgba(0, 0, 10, 0.85);
+  min-height: 100vh;
+  width: 400px;
+  color: white;
+}
+
+/* line 41, ../../compass/sass/_artistAccount.scss */
+.artwork-wrapper {
+  padding: 120px 10%;
+  text-align: center;
+}
+/* line 44, ../../compass/sass/_artistAccount.scss */
+.artwork-wrapper a {
+  cursor: default;
+  padding: 0 20px;
+  margin-bottom: 100px;
+}
+/* line 50, ../../compass/sass/_artistAccount.scss */
+.artwork-wrapper img {
+  min-height: 150px;
+  animation: growImage .4s linear;
+  width: 100%;
+  border-radius: 5%;
+}
+/* line 57, ../../compass/sass/_artistAccount.scss */
+.artwork-wrapper img:hover {
+  filter: brightness(30%);
+  cursor: pointer;
+}
+
+@keyframes growImage {
+  0% {
+    max-width: 80%;
+    opacity: 0.2;
+  }
+  100% {
+    max-width: 100%;
+    opacity: 1;
+  }
+}
+/* line 73, ../../compass/sass/_artistAccount.scss */
+.add-item {
+  position: absolute;
+  top: 60px;
+  right: 50px;
+}
+
+/* line 8, ../../compass/sass/styles.scss */
+body {
+  background-color: #fff5f5;
+  overflow-x: hidden;
+}
+
+/* line 13, ../../compass/sass/styles.scss */
+.ebay-wrapper {
+  min-height: 100vh;
+}
+/* line 15, ../../compass/sass/styles.scss */
+.ebay-wrapper .sign-in-nav-bar-wrapper {
+  left: 0;
+  top: 0;
+  z-index: 5;
+  position: fixed;
+  width: 100%;
+  background-color: #232F3E;
+  height: 50px;
+  line-height: 50px;
+}
+/* line 23, ../../compass/sass/styles.scss */
+.ebay-wrapper .logo {
+  margin-left: 20px;
+}
+/* line 25, ../../compass/sass/styles.scss */
+.ebay-wrapper .logo a {
+  color: white;
+}
+/* line 28, ../../compass/sass/styles.scss */
+.ebay-wrapper .logo a:hover {
+  opacity: 0.8;
+}
+/* line 33, ../../compass/sass/styles.scss */
+.ebay-wrapper .search-bar-wrapper {
+  display: inline-block;
+  position: absolute;
+  right: 40px;
+  top: 0;
+  color: white;
+}
+/* line 38, ../../compass/sass/styles.scss */
+.ebay-wrapper .search-bar-wrapper a {
+  color: white;
+  margin: 0 10px;
+}
+/* line 41, ../../compass/sass/styles.scss */
+.ebay-wrapper .search-bar-wrapper a:hover {
+  opacity: 0.8;
+}
+/* line 45, ../../compass/sass/styles.scss */
+.ebay-wrapper .search-bar-wrapper form {
+  display: inline-block;
+}
+/* line 47, ../../compass/sass/styles.scss */
+.ebay-wrapper .search-bar-wrapper form input {
+  height: 30px;
+  border-radius: 5%;
+}
+/* line 51, ../../compass/sass/styles.scss */
+.ebay-wrapper .search-bar-wrapper form button {
+  height: 30px;
+  border: none;
+  margin-top: -2px;
+  margin-left: 4px;
+  color: #232F3E;
+  font-weight: 800;
+}
+/* line 60, ../../compass/sass/styles.scss */
+.ebay-wrapper .search-bar-wrapper form button:hover {
+  opacity: 0.8;
+}
+/* line 65, ../../compass/sass/styles.scss */
+.ebay-wrapper .body-wrapper {
+  padding: 8%;
+  padding-top: 50px;
+}
+/* line 69, ../../compass/sass/styles.scss */
+.ebay-wrapper .body-wrapper .body-content-wrapper .each-item-wrapper {
+  height: 400px;
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+}
+/* line 80, ../../compass/sass/styles.scss */
+.ebay-wrapper .body-wrapper .body-content-wrapper .each-item-wrapper .each-item-image {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: white;
+}
+/* line 88, ../../compass/sass/styles.scss */
+.ebay-wrapper .body-wrapper .body-content-wrapper .each-item-wrapper .each-item-image img {
+  height: 300px;
+  max-width: 100%;
+}
+/* line 96, ../../compass/sass/styles.scss */
+.ebay-wrapper .body-wrapper .body-content-wrapper .each-item-wrapper .each-item-description {
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* line 107, ../../compass/sass/styles.scss */
+.register-form-wrapper, .login-form-wrapper {
+  margin: auto;
+  margin-top: 80px;
+  width: 350px;
+  background-color: #EFEFEF;
+  padding: 10px 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
+}
+/* line 115, ../../compass/sass/styles.scss */
+.register-form-wrapper .register-form-header, .login-form-wrapper .register-form-header {
+  height: 70px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  line-height: 30px;
+}
+/* line 121, ../../compass/sass/styles.scss */
+.register-form-wrapper .register-form-header .register-form-description, .login-form-wrapper .register-form-header .register-form-description {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.3);
+}
+/* line 126, ../../compass/sass/styles.scss */
+.register-form-wrapper .register-form, .register-form-wrapper .login-form, .login-form-wrapper .register-form, .login-form-wrapper .login-form {
+  margin-top: 30px;
+}
+/* line 128, ../../compass/sass/styles.scss */
+.register-form-wrapper .register-form input, .register-form-wrapper .login-form input, .login-form-wrapper .register-form input, .login-form-wrapper .login-form input {
+  margin-top: 14px;
+  height: 40px;
+}
+/* line 132, ../../compass/sass/styles.scss */
+.register-form-wrapper .register-form button, .register-form-wrapper .login-form button, .login-form-wrapper .register-form button, .login-form-wrapper .login-form button {
+  width: 100%;
+  height: 40px;
+  margin-top: 14px;
+  background-color: #232F3E;
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* line 142, ../../compass/sass/styles.scss */
+.register-form-wrapper {
+  display: inline-block;
+}
+
+/* line 145, ../../compass/sass/styles.scss */
+.register-form-wrapper-artist {
+  display: inline-block;
+  margin: auto;
+  margin-top: 80px;
+  width: 350px;
+  background-color: #d2f0d2;
+  padding: 10px 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
+}
+/* line 154, ../../compass/sass/styles.scss */
+.register-form-wrapper-artist .register-form-header {
+  height: 70px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  line-height: 30px;
+}
+/* line 160, ../../compass/sass/styles.scss */
+.register-form-wrapper-artist .register-form-header .register-form-description {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.3);
+}
+/* line 165, ../../compass/sass/styles.scss */
+.register-form-wrapper-artist .register-form, .register-form-wrapper-artist .login-form {
+  margin-top: 30px;
+}
+/* line 167, ../../compass/sass/styles.scss */
+.register-form-wrapper-artist .register-form input, .register-form-wrapper-artist .login-form input {
+  margin-top: 14px;
+  height: 40px;
+}
+/* line 171, ../../compass/sass/styles.scss */
+.register-form-wrapper-artist .register-form button, .register-form-wrapper-artist .login-form button {
+  width: 100%;
+  height: 40px;
+  margin-top: 14px;
+  background-color: green;
+  color: white;
+  margin-bottom: 20px;
+}

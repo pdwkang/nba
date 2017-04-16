@@ -1,0 +1,77 @@
+$nav-bar-height: 50px;
+$body-bg: rgba(255,245,245,1);
+$nav-bar-color:#232F3E;
+
+.my-account-page{
+	max-width: 919px;
+	margin:auto;
+}
+.profileImage{
+	width:100%;
+}
+
+.dark-button{
+	background-color: orange;
+	color:$nav-bar-color;
+}
+
+.uploading{
+	animation: uploadColor 1s linear infinite;
+}
+@keyframes uploadColor{
+	0%{
+		color:black;
+	}
+	50%{
+		color:blue;
+	}
+	100%{
+		color:black;
+	}
+}
+
+.side-bar-content{
+	padding:70px 20px;
+	// background-color: rgba(255,255,255,0.9);
+	background-color: rgba(0,0,10,0.85);
+	min-height:100vh;
+	width:400px;
+	color:white;
+}
+.artwork-wrapper{
+	padding:120px 10%;
+	text-align: center;
+	a{
+		cursor:default;
+		// background-color: white;
+		padding:0 20px;
+		margin-bottom: 100px;
+	}
+	img{
+		min-height:150px;
+		animation:growImage .4s linear;
+		
+		width:100%;
+		border-radius: 5%;
+
+		&:hover{
+			filter:brightness(30%);
+			cursor:pointer;
+		}
+	}
+}
+@keyframes growImage{
+	0%{
+		max-width:80%;
+		opacity: 0.2;
+	}
+	100%{
+		max-width:100%;
+		opacity: 1;
+	}
+}
+.add-item{
+	position: absolute;
+	top:60px;
+	right:50px;
+}

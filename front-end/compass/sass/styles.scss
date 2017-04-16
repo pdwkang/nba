@@ -1,0 +1,180 @@
+@import "./styles2.scss";
+@import "./artistAccount.scss";
+
+$nav-bar-height: 50px;
+$body-bg: rgba(255,245,245,1);
+$nav-bar-color:#232F3E;
+
+body{
+	background-color: $body-bg;
+	overflow-x:hidden;
+}
+
+.ebay-wrapper{
+	min-height: 100vh;
+	.sign-in-nav-bar-wrapper{
+		left:0; top:0; z-index: 5;
+		position: fixed;
+		width:100%;
+		background-color: $nav-bar-color;
+		height: $nav-bar-height;
+		line-height:$nav-bar-height;
+	}
+	.logo{
+		margin-left: 20px;
+		a{
+
+			color: white;
+			&:hover{
+				opacity: 0.8;
+			}
+		}
+	}
+	.search-bar-wrapper{
+		display: inline-block;
+		position: absolute;
+		right: 40px; top:0;
+		color: white;
+		a{  //// Link tags are styled as <a> tags ////
+			color: white;
+			margin: 0 10px;
+			&:hover{
+				opacity: 0.8
+			}
+		}
+		form{
+			display: inline-block;
+			input{
+				height:30px;
+				border-radius: 5%;
+			}
+			button{
+				height: 30px;
+				border:none;
+				margin-top:-2px;
+				margin-left: 4px;
+				color:$nav-bar-color;
+				font-weight: 800;
+				
+			}
+			button:hover{
+				opacity: .8
+			}
+		}
+	}
+	.body-wrapper{
+		padding:8%;		
+		padding-top:$nav-bar-height;
+		.body-content-wrapper{
+			.each-item-wrapper{
+				height:400px;
+				margin-top:20px;
+				// background-color:$body-bg;
+				// display: flex;
+				// flex-direction: row;
+				// align-items:center;
+				// justify-content:flex-start;
+				padding:20px;
+				// padding-top:20px;
+				text-align: center;
+				.each-item-image{
+					border:1px solid rgba(0,0,0,0.1);
+					padding:20px;
+					background-color: white;
+					// display:block;
+					// display: flex;
+					// align-items: center;
+					// justify-content: center;
+					img{
+						height: 300px;
+						max-width:100%;
+						// width:90%;
+						// height:auto;
+						// width: auto;
+					}
+				}
+				.each-item-description{
+					// display: inline-block;
+					// display: flex;
+					align-items:center;
+					justify-content:flex-start;
+				}
+			}
+		}
+	}
+}
+
+.register-form-wrapper, .login-form-wrapper{
+	margin:auto;
+	margin-top:80px;
+	width:350px;
+	background-color: #EFEFEF;
+	padding:10px 30px;
+	border: 1px solid rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.1);
+	.register-form-header{
+		height:70px;
+		border-bottom: 1px solid rgba(0,0,0,0.1);
+		color:rgba(0,0,0,0.5);
+		font-size: 20px;
+		line-height: 30px;
+		.register-form-description{
+			font-size:15px;
+			color: rgba(0,0,0,0.3);
+		}
+	}
+	.register-form, .login-form{
+		margin-top: 30px;
+		input{
+			margin-top: 14px;
+			height:40px;
+		}
+		button{
+			width: 100%;
+			height:40px;
+			margin-top:14px;
+			background-color: $nav-bar-color;
+			color:white;
+			margin-bottom:20px;
+		}
+	}
+}
+.register-form-wrapper{
+	display: inline-block;
+}
+.register-form-wrapper-artist{
+	display: inline-block;
+	margin:auto;
+	margin-top:80px;
+	width:350px;
+	background-color: rgba(210,240,210,1);
+	padding:10px 30px;
+	border: 1px solid rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.1);
+	.register-form-header{
+		height:70px;
+		border-bottom: 1px solid rgba(0,0,0,0.1);
+		color:rgba(0,0,0,0.5);
+		font-size: 20px;
+		line-height: 30px;
+		.register-form-description{
+			font-size:15px;
+			color: rgba(0,0,0,0.3);
+		}
+	}
+	.register-form, .login-form{
+		margin-top: 30px;
+		input{
+			margin-top: 14px;
+			height:40px;
+		}
+		button{
+			width: 100%;
+			height:40px;
+			margin-top:14px;
+			background-color: green;
+			color:white;
+			margin-bottom:20px;
+		}
+	}
+}
