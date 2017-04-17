@@ -15,6 +15,7 @@ import Register from './containers/Register.js';
 import Account from './containers/Account.js';
 import Artists from './containers/Artists.js';
 import MyArtwork from './containers/MyArtwork.js';
+import Bracket from './containers/Bracket.js';
 
 
 // Styles
@@ -51,8 +52,10 @@ ReactDOM.render(
 				<Route path="login" component={Login} />
 				<Route path="register" component={Register} />
 				<Route path="account/:username" component={Account} />
+				<Route path="bracket/:username" component={Bracket} />
 				<Route path="artists" component={Artists} />
 				<Route path="myArtwork" component={MyArtwork} />
+
 			</Route>
 		</Router>
 	</Provider>,

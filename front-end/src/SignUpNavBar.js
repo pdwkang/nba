@@ -20,7 +20,7 @@ class SignUpNavBar extends Component {
     render() {
         return (
         	<div className='sign-in-nav-bar-wrapper'>
-                <div className='logo'><Link to='/'>Logo / Home</Link></div>
+                <div className='logo'><Link to='/'>Home</Link></div>
                 <div className='search-bar-wrapper'>
                     <Link to="/login">Sign In</Link> or
                     <Link to="/register">Register</Link>

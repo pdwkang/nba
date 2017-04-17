@@ -1,3 +1,12 @@
+/* line 1, ../../compass/sass/_styles2.scss */
+.each-team-box {
+  background-color: black;
+  color: white;
+  width: 130px;
+  height: 70px;
+  position: absolute;
+}
+
 /* line 5, ../../compass/sass/_artistAccount.scss */
 .my-account-page {
   max-width: 919px;
@@ -83,7 +92,7 @@
 
 /* line 8, ../../compass/sass/styles.scss */
 body {
-  background-color: #fff5f5;
+  background-color: #EDEEF0;
   overflow-x: hidden;
 }
 
@@ -98,7 +107,7 @@ body {
   z-index: 5;
   position: fixed;
   width: 100%;
-  background-color: #232F3E;
+  background-color: #38393F;
   height: 50px;
   line-height: 50px;
 }
@@ -146,7 +155,7 @@ body {
   border: none;
   margin-top: -2px;
   margin-left: 4px;
-  color: #232F3E;
+  color: #38393F;
   font-weight: 800;
 }
 /* line 60, ../../compass/sass/styles.scss */
@@ -219,7 +228,7 @@ body {
   width: 100%;
   height: 40px;
   margin-top: 14px;
-  background-color: #232F3E;
+  background-color: #38393F;
   color: white;
   margin-bottom: 20px;
 }

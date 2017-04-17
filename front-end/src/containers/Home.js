@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import EachItemInFrontPage from '../containers/EachItemInFrontPage.js'
+import LiveBracket from '../containers/LiveBracket.js'
 import FetchItems from '../actions/FetchItems.js'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
@@ -9,17 +9,17 @@ class Home extends Component {
     	this.props.FetchItems();
     }
     render() {
-      if(this.props.items !== null){
-        var items = []
-        this.props.items.results.map(value => {
-          items.push(<EachItemInFrontPage item={value} key={value.id}/>)
-          return "STUPID WARNINGGGGGGGG"
-        })
+    //   if(this.props.items !== null){
+    //     var items = []
+    //     this.props.items.results.map(value => {
+    //       items.push(<LiveBracket item={value} key={value.id}/>)
+    //       return "STUPID WARNINGGGGGGGG"
+    //     })
 
-      }
+    //   }
       return (
   			<div className='body-content-wrapper'>
-      		{items}
+      		<LiveBracket/>
       	</div>
         );
     }

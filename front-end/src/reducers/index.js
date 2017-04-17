@@ -6,6 +6,7 @@ import GetAccountReducer from './GetAccountReducer.js';
 import BidReducer from './BidReducer.js';
 import Artists from './Artists.js';
 import ArtistData from './ArtistData.js';
+import Bracket from './Bracket.js';
 
 
 const rootReducer = combineReducers({
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
 	account: GetAccountReducer,
 	bid: BidReducer,
 	artists: Artists,
-	artistData: ArtistData
+	artistData: ArtistData,
+	bracket:Bracket
 })
 
 export default rootReducer;

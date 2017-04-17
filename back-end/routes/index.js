@@ -27,7 +27,6 @@ var artImg = upload.single('imgFile');
 var fs = require('fs');
 
 
-
 router.get('/', function(req, res, next) {
     // Instead of always using the same connection, we can use a pool of connections.
     // we just grab teh pool (defined above), use it, and then release it back to the pool.
@@ -35,7 +34,7 @@ router.get('/', function(req, res, next) {
     // see https://www.npmjs.com/package/mysql#connection-options   
     pool.getConnection((err, connection)=> {
         // connected! (unless `err` is set)
-        const selectQuery = 'SELECT * FROM item';
+        const selectQuery = 'SELECT * FROM user';
         connection.query(selectQuery, (error, results, field) => {
             if (error) throw error;
             res.send({ results });
@@ -43,17 +42,37 @@ router.get('/', function(req, res, next) {
         connection.release()
     }); 
 });
-router.get('/products/:id', function(req, res, next) {
+
+
+
+router.post('/submitBracket', (req, res, next) => {
     pool.getConnection((err, connection)=> { 
-        const itemId = req.params.id;
-        const selectQuery = `SELECT * FROM item WHERE id=${itemId}`;
-        connection.query(selectQuery, (error, results, field) => {
+        var token = req.body.token;
+        // console.log(req.body)
+        var bracketString = req.body.bracket
+        // console.log(bracketString)
+        var insertQuery = `UPDATE user SET bracket = ? WHERE token = ?`;
+        connection.query(insertQuery, [bracketString, token], (error, results) => {
             if (error) throw error;
-            res.send({ results });
+            // console.log('Results: ' + results);
+            var selectQuery = "SELECT * FROM user WHERE token = ?"
+            connection.query(selectQuery, [token], (error, results)=>{
+                if (error) throw error;
+                // console.log('############')
+                // console.log(results)
+                // console.log('############')                            
+                res.json({
+                    msg:'foundUser',
+                    token: token,
+                    username: results.username,
+                    data:results
+                })    
+            })
         });
-        connection.release()        
-    }) 
-})
+        connection.release()                    
+    });
+});
+
 router.post('/login', (req, res, next) => {
     pool.getConnection((err, connection)=> { 
         const selectQuery = 'SELECT * FROM user WHERE username = ?';
@@ -169,57 +188,6 @@ router.get('/account/:username', function(req, res, next) {
 })
 
 
-router.post('/submitBid/', function(req, res, next) {
-    pool.getConnection((err, connection)=> {             
-        const selectQuery = 'SELECT current_bid, starting_bid FROM item WHERE id = ?';
-        connection.query(selectQuery, [req.body.auctionItemId], (error, results, field) => {
-            if (error) throw error;
-            // console.log('############')
-            // console.log(results)
-            // console.log('############')
-            if((req.body.bidAmount < results[0].current_bid)
-            ||(req.body.bidAmount < results[0].starting_bid)){
-                res.json({ msg: "bidToLow" });
-            }else{
-                // bid had passed server validation.. its high enough! update
-                // update the bid_history table, and the auctions table
-                // >> auctions table
-                //   - high_bider_id
-                //   - current_bid
-                // >> bid_history
-                //   - auction_id
-                //   - bidder_id
-                //   - amount
-                // update auctions high_bidder_id and bid
-                // where auction id = whatever was passed           
-                var getUserId = "SELECT id FROM user WHERE token = ?"
-                // console.log(req.body.userToken)
-                connection.query(getUserId, [req.body.userToken], (error2, results2) => {
-                    // console.log('############')
-                    // console.log(results2)
-                    // console.log('############')
-                    if(results2.length > 0){
-                        var insertAuctionsQuery = " UPDATE item SET high_bidder_id = ?, current_bid = ? " +
-                            "WHERE id = ?";
-                        connection.query(insertAuctionsQuery, [results2[0].id, req.body.bidAmount, req.body.auctionItemId], (error, results, field) => {
-                            if (error2) throw error2;
-                            res.json({
-                                msg:'bidAccepted',
-                                newBid: req.body.bidAmount
-                            })                      
-                        })      
-                    }else{
-                        res.json({
-                            msg:'badToken'
-                        })
-                    }
-                })
-            }
-        });
-        connection.release()                
-    })
-})
-
 router.get('/artists', function(req, res, next) {
     pool.getConnection((err, connection)=> {         
         const selectQuery = 'SELECT * FROM user WHERE job = ?';
@@ -298,61 +266,26 @@ router.post('/updateProfile', (req, res, next) => {
     });
 });
 
-router.get('/artistData/:id', function(req, res, next) {
-    pool.getConnection((err, connection)=> {         
-        var artistID = req.params.id
-        const selectQuery = 'SELECT * FROM user WHERE id = ?';
-        connection.query(selectQuery, [artistID], (error, results, field) => {
-            if (error) throw error;
-            var artistData = results
-            var selectItemsQuery = 'SELECT * FROM item WHERE seller_id = ?'
-            connection.query(selectItemsQuery, [artistID], (error, results2, field) => {
-            // console.log(results)
-                res.json({
-                    artist: artistData,
-                    items: results2
-                }) 
-            });             
-        });
-        connection.release()                            
-    }) 
-})
+// router.get('/artistData/:id', function(req, res, next) {
+//     pool.getConnection((err, connection)=> {         
+//         var artistID = req.params.id
+//         const selectQuery = 'SELECT * FROM user WHERE id = ?';
+//         connection.query(selectQuery, [artistID], (error, results, field) => {
+//             if (error) throw error;
+//             var artistData = results
+//             var selectItemsQuery = 'SELECT * FROM user WHERE user_id = ?'
+//             connection.query(selectItemsQuery, [artistID], (error, results2, field) => {
+//             // console.log(results)
+//                 res.json({
+//                     artist: artistData,
+//                     items: results2
+//                 }) 
+//             });             
+//         });
+//         connection.release()                            
+//     }) 
+// })
 
-router.post('/addArtwork', artImg, (req, res, next) => {
-    // console.log(req.body)
-    var id = req.body.id;
-    var title = req.body.title;
-    var description = req.body.description;
-    var startPrice = req.body.startPrice;
-    var buyNow = req.body.buyNow;
-    var auctionStart = req.body.auctionStart
-    var auctionEnd = req.body.auctionEnd
-    var tags = req.body.tags
-    var userId = '';
-    var auctionId = '';
-    var tempPath = req.file.path;
-    var imgName = req.file.originalname;
-    var targetPath = `public/images/${imgName}`;
-
-    // var getUserQuery = `SELECT id FROM users WHERE token = ?`;
-    var insertQuery = 'INSERT INTO item (name, description, seller_id, starting_bid, current_bid, buy_now_price, tags, image_url) VALUES (?,?,?,?,?,?,?,?)'
-    pool.getConnection((err, connection)=> {         
-        connection.query(insertQuery, [title,description,id,startPrice,'0',buyNow,tags,imgName], (error1, results1) => {
-            fs.readFile(tempPath, (readError, readContents) => {
-                fs.writeFile(targetPath, readContents, (writeError) => {
-                    if (writeError) throw writeError;
-                    fs.unlink(tempPath, (unlinkError) => {
-                        if (unlinkError) throw unlinkError;
-                        res.json({
-                            msg: `Listing ${auctionId} created`
-                        });
-                    });
-                });
-            });
-        });
-        connection.release()
-    });
-});
 
 module.exports = router;
 
