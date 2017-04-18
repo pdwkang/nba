@@ -51,15 +51,15 @@ router.post('/submitBracket', (req, res, next) => {
         // console.log(req.body)
         var bracketString = req.body.bracket
         // console.log(bracketString)
-        var insertQuery = `UPDATE user SET bracket = ? WHERE token = ?`;
-        connection.query(insertQuery, [bracketString, token], (error, results) => {
+        var insertQuery = `UPDATE user SET bracket = ?, submitted = ? WHERE token = ?`;
+        connection.query(insertQuery, [bracketString, 'yes', token], (error, results) => {
             if (error) throw error;
             // console.log('Results: ' + results);
             var selectQuery = "SELECT * FROM user WHERE token = ?"
             connection.query(selectQuery, [token], (error, results)=>{
                 if (error) throw error;
                 // console.log('############')
-                // console.log(results)
+                console.log(results.username)
                 // console.log('############')                            
                 res.json({
                     msg:'foundUser',

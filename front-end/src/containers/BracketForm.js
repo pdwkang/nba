@@ -124,7 +124,7 @@ class BracketForm extends Component {
   render() {
     var example_bracket = this.state
     return (
-      <div style={{backgroundColor:'blue', width:1200, height:800, margin:'auto', position:'relative'}}>
+      <div className='bracket-wrapper'>
 
         <div className='each-team-box' onClick={this.handle1W1} style={{top:0,left:0}}>{example_bracket.teams[0]}</div>
         <div className='each-team-box' onClick={this.handle2W1} style={{top:80,left:0}}>{example_bracket.teams[1]}</div>

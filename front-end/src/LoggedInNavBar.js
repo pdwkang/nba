@@ -20,7 +20,7 @@ class LoginNavBar extends Component {
         	<div className='sign-in-nav-bar-wrapper'>
                 <div className='logo'><Link to='/'>Home</Link></div>
                 <div className='search-bar-wrapper'>
-                    <Link to={'/artists'}>Rankings</Link>
+                    <Link to={'/rankings'}>Rankings</Link>
                     <Link to={'/bracket/' + this.props.user.username}>My Bracket</Link>
                     <Link to={'/account/' + this.props.user.username}>My Account</Link>
                     <Link style={{cursor:'pointer'}} onClick={this.handleLogOut}>Log Out</Link>&nbsp; &nbsp; 

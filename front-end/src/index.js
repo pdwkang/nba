@@ -53,7 +53,7 @@ ReactDOM.render(
 				<Route path="register" component={Register} />
 				<Route path="account/:username" component={Account} />
 				<Route path="bracket/:username" component={Bracket} />
-				<Route path="artists" component={Artists} />
+				<Route path="rankings" component={Artists} />
 				<Route path="myArtwork" component={MyArtwork} />
 
 			</Route>

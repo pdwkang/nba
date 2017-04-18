@@ -79,26 +79,6 @@ class Register extends Component {
 						<h1>{message}</h1>
 					</form>
 				</div>
-				<div style={{width:50, display:'inline-block'}}></div>
-				<div className="register-form-wrapper-artist">
-					<br/>
-					<div className='register-form-header'>
-						Artist Sign Up<br/>
-						<span className='register-form-description'>
-							Fill in the form below to sell your artwork!
-						</span>
-					</div>
-					<form className="text-center register-form" onSubmit={this.registerInformation} >
-						<input className="form-control" type="text" required name="name" placeholder="Full Name" />
-						<input className="form-control" type="email" required name="email" placeholder="Email" />
-						<input className="form-control" type="text" required name="username" placeholder="Username" />
-						<input className="form-control" type="password" required placeholder="Password" />
-						<input className="form-control" type="password" required name="password" placeholder="Repeat Password" />
-						{passwordMatchString}
-						<button className="btn btn-primary" type="submit" onClick={this.handleJob} value="Register">Register</button>
-						<h1>{message}</h1>
-					</form>
-				</div>
 			</div>
 		)
 	}

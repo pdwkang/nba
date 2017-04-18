@@ -16,7 +16,7 @@ class Bracket extends Component {
     componentDidMount() {
       this.props.FetchAccount(this.props.params.username);
       // console.log(this.props.params.username)
-        if(this.props.user.submitted === 'yes'){
+        if(this.props.user.data[0].submitted === 'yes'){
           console.log(this.props.user.data[0].submitted)
           this.setState({
             WhatToRender: <MyBracket/>

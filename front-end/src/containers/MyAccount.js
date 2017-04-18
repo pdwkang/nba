@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import { Form, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import { Link} from 'react-router'
 
-class ArtistAccount extends Component {  
+class MyAccount extends Component {  
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -127,7 +127,7 @@ class ArtistAccount extends Component {
 					</FormGroup>
 				</Form>
 				</div>
-                <Link to='myArtwork'>Sell Your Art</Link>
+                
 			</div>
 		);
 	}
@@ -150,4 +150,5 @@ function mapDispatchToProps(dispatch){
   }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArtistAccount);
+export default connect(mapStateToProps, mapDispatchToProps)(MyAccount);
+// <Link to='myArtwork'>Sell Your Art</Link>

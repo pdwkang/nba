@@ -11,7 +11,7 @@ body{
 }
 
 .ebay-wrapper{
-	min-height: 100vh;
+	// min-height: 100vh;
 	.sign-in-nav-bar-wrapper{
 		left:0; top:0; z-index: 5;
 		position: fixed;
@@ -63,7 +63,8 @@ body{
 		}
 	}
 	.body-wrapper{
-		padding:8%;		
+		padding-left:8%;
+		padding-right:8%;		
 		padding-top:$nav-bar-height;
 		.body-content-wrapper{
 			.each-item-wrapper{

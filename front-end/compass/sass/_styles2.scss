@@ -1,10 +1,25 @@
 .each-team-box{
 	// dummy styling
-	background-color: black;
+	background-color: #DD0000;
+	border-left: 10px solid #B40000;
 	color:white;
-
+	font-size: 17px;
+	font-family: arial;
+	text-align:center;
+	border-radius: 5%;
 	width:130px;
 	height:70px;
+	line-height: 70px;
 	position: absolute;
 
+}
+
+.bracket-wrapper{
+	// background-color:rgba(230,10,200,1);
+	
+	width:1200px;
+	height:640px;
+	margin:auto;
+	position:relative;
+	margin-top: 50px;
 }

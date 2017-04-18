@@ -17,6 +17,7 @@ class MyBracket extends Component {
     }
   }
   render(){
+    
     var bracket = JSON.parse(this.props.user.data[0].bracket)
     return(
       <div>
